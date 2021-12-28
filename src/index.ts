@@ -7,11 +7,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
-const whiteList = ['princethomas.dev'];
+
+const whiteList = [''];
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (origin) {
-      console.log(origin);
       if (whiteList.indexOf(origin) !== -1) {
         callback(null);
       } else {
