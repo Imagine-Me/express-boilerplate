@@ -7,7 +7,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT;
 
-
 const whiteList = [''];
 const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
