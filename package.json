@@ -28,6 +28,7 @@
     "jest": "^27.4.5",
     "nodemon": "^2.0.15",
     "prettier": "2.5.1",
+    "semantic-release": "^18.0.1",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",
@@ -39,5 +40,11 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2"
+  },
+  "release": {
+    "branches": [
+      "main",
+      "ci"
+    ]
   }
 }
