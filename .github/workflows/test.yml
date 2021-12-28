@@ -1,0 +1,21 @@
+name: "Test"
+
+on:
+  pull_request:
+
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning code
+        uses: actions/checkout@v2
+      - name: Using node version 16
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - name: Installing dependencies
+        run: npm install
+      - name: Checking code format
+        run: npm run format:check
+      - name: Running tests
+        run: npm run test
