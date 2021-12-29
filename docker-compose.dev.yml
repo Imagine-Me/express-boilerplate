@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  todo-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - /home/todo-backend/node_modules
+      - .:/home/todo-backend
+    environment:
+      - PG_USER=${PG_USER}
+      - PG_PASSWORD=${PG_PASSWORD}
+      - PG_HOST=${PG_HOST}
+      - PG_PORT=${PG_PORT}
+      - PG_DATABASE=${PG_DATABASE}
+      - PORT=${PORT}
+
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_DB=${PG_DATABASE}
+      - POSTGRES_HOST_AUTH_METHOD=trust
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/todo-backend/node_modules
+      - .:/home/todo-backend
+    command: [ "npm", "run", "test" ]
