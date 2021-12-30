@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - POSTGRES_DB=${PG_DATABASE}
+      - POSTGRES_HOST_AUTH_METHOD=trust
   todo-backend:
     build:
       context: .
@@ -18,11 +24,6 @@ services:
       - PG_DATABASE=${PG_DATABASE}
       - PORT=${PORT}
 
-  postgres:
-    image: 'postgres:latest'
-    environment:
-      - POSTGRES_DB=${PG_DATABASE}
-      - POSTGRES_HOST_AUTH_METHOD=trust
   tests:
     build:
       context: .

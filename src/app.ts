@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors, { CorsOptions } from 'cors';
 import v1Router from './routes/v1/index.route';
+import { db } from './db/index.db';
 
 dotenv.config();
 const app = express();
@@ -30,6 +31,11 @@ app.use('/v1', v1Router);
 
 app.get('/', (req, res) => {
   res.send('HELLO WORLD');
+});
+
+// PSQL
+Object.keys(db).forEach((model: any) => {
+  db[model].sync();
 });
 
 export default app;

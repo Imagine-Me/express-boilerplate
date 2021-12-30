@@ -1,8 +1,8 @@
-# Boilerplate for ExpressJs (TS)
-Basic code setup for ExpressJS
+# TODO BACKEND
 
-- Typescript
-- Prettier
-- Testing (supertest, jest)
-- husky
-- github action for testing
+### MODELS
+
+#### 1. Notfication model
+- id
+- notification_text
+- notification_time
