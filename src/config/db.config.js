@@ -1,6 +1,4 @@
-import { Options } from 'sequelize/dist';
-
-export default {
+module.exports = {
   development: {
     username: process.env.PG_USER,
     password: process.env.PG_PASSWORD,
@@ -15,5 +13,5 @@ export default {
     dialectOptions: {
       setUTC: true,
     },
-  } as Options,
+  },
 };

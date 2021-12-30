@@ -1,5 +1,6 @@
-import { Model, ModelCtor, Sequelize } from 'sequelize';
+import { Model, ModelCtor, Options, Sequelize } from 'sequelize';
 import config from '../config/db.config';
+
 import { models } from '../models/index.model';
 
 interface Database {
@@ -7,7 +8,7 @@ interface Database {
 }
 
 const db = {} as Database;
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(config.development as Options);
 
 Object.keys(models).forEach((model) => {
   db[model] = models[model](sequelize);

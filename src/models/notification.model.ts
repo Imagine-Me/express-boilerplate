@@ -21,6 +21,10 @@ const NotificationModel = (sequelize: Sequelize) =>
         type: DataTypes.DATE,
         allowNull: false,
       },
+      isCompleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
     },
     {
       freezeTableName: true,
