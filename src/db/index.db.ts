@@ -8,7 +8,9 @@ interface Database {
 }
 
 const db = {} as Database;
-const sequelize = new Sequelize(config.development as Options);
+const env = process.env.NODE_ENV ?? 'development';
+const configEnv = config as any;
+const sequelize = new Sequelize(configEnv[env] as Options);
 
 Object.keys(models).forEach((model) => {
   db[model] = models[model](sequelize);

@@ -4,8 +4,8 @@
   "description": "Backend for handling common apis",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "nodemon ./src/index.ts",
-    "serve": "ts-node ./src/index.ts",
+    "start": "cross-env NODE_ENV=development nodemon ./src/index.ts",
+    "serve": "cross-env NODE_ENV=production ts-node ./src/index.ts",
     "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "format": "npx prettier --write ./src",
     "format:check": "npx prettier --check ./src",
@@ -31,6 +31,7 @@
     "nodemon": "^2.0.15",
     "prettier": "2.5.1",
     "semantic-release": "^18.0.1",
+    "sqlite3": "^5.0.2",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
     "ts-node": "^10.4.0",

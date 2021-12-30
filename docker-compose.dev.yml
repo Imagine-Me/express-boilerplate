@@ -23,7 +23,10 @@ services:
       - PG_PORT=${PG_PORT}
       - PG_DATABASE=${PG_DATABASE}
       - PORT=${PORT}
-
+      - NODE_ENV=development
+    depends_on:
+      - postgres
+      - tests
   tests:
     build:
       context: .
@@ -32,3 +35,7 @@ services:
       - /home/todo-backend/node_modules
       - .:/home/todo-backend
     command: [ "npm", "run", "test" ]
+    environment:
+      - NODE_ENV=test
+    depends_on:
+      - postgres

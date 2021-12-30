@@ -1,13 +1,8 @@
 import supertest from 'supertest';
-import server from './index';
+import app from './app'
 
-const requestWithSuperTest = supertest(server);
-
+const requestWithSuperTest = supertest(app);
 describe('test main route', () => {
-  afterAll((done) => {
-    server.close();
-    done();
-  });
   it('should return HELLO WORLD', async () => {
     const result = await requestWithSuperTest.get('/');
     expect(result.status).toEqual(200);
